@@ -2,13 +2,14 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
+
+
 export default function App() {
   return (
     <View style={styles.container}>
       <ScrollView>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={title}>Spiritual Gifts Survey</Text>
+      <Text>Church</Text>
       <StatusBar style="auto" />
       </ScrollView>
     </View>
@@ -23,3 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+const title = { 
+    fontFamily: "Times New Roman",
+    fontSize: 36,
+};
