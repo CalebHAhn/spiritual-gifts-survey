@@ -1,8 +1,9 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, View, ScrollView, FlatList } from 'react-native';
 
 export default function App() {
+const [number, onChangeNumber] = React.useState('');
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -42,6 +43,19 @@ export default function App() {
           borderBottomColor: 'black',
           borderBottomWidth: 3,
         }}/>
+
+        <View style={styles.questionBox}>
+            <TextInput style = {styles.input}
+               placeholder = ''
+               autoCapitalize = "none"
+               value={number}
+               onChangeText = {onChangeNumber}
+               />
+        <Text style={styles.questionText}>Hello!</Text>
+        </View>
+
+        <Text>{number}</Text>
+
       <StatusBar style="auto" />
       </ScrollView>
     </View>
@@ -78,4 +92,21 @@ const styles = StyleSheet.create({
      color: '#000000',
      lineHeight: 60,
   },
+  questionBox: {
+    flexDirection: 'row',
+  },
+  questionText: {
+    fontFamily: 'Arial, Helvetica, Monaco, Times New Roman',
+    fontSize: 16,
+    lineHeight: 70,
+  },
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: '#3a42f4',
+    borderWidth: 3,
+    width: 45,
+    fontSize: 20,
+    fontWeight: 'bold',
+ },
 });
