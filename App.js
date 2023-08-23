@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
 
 export default function App() {
   return (
@@ -13,7 +13,35 @@ export default function App() {
           borderBottomWidth: 3,
         }}/>
       <Text style={styles.subtitleText}>DIRECTIONS</Text>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.baseText}>This is not a test, so there are no wrong answers. The Spiritual Gifts Survey consists of 80 statements. Some items reflect concrete actions, 
+        other items are descriptive traits, and still others are statements of belief.</Text>
+      <FlatList
+          data={[
+            { key: 'Select the one response you feel best characterizes yourself and place that number in the blank provided. Record your answer in the blank beside each item.' },
+            { key: 'Do not spend too much time on any one item. Remember, it is not a test. Usually your immediate response is best.' },
+            { key: 'Please give an answer for each item. Do not skip any items.' },
+            { key: 'Do not ask others how they are answering or how they think you should answer.' },
+            { key: 'Work at your own pace.' },
+          ]}
+          renderItem={({ item }) => {
+            return (
+              <View style={{ marginBottom: 10 }}>
+                <Text style={{ fontSize: 14, lineHeight: 15 }}>{`\u2022 ${item.key}`}</Text>
+              </View>
+            );
+          }}
+        />
+        <Text style={styles.baseText}>Your response choices are:</Text>
+        <Text style={styles.baseText}>5 — Highly characteristic of me/definitely true for me</Text>
+        <Text style={styles.baseText}>4 — Most of the time this would describe me/be true for me</Text>
+        <Text style={styles.baseText}>3 — Frequently characteristic of me/true for me–about 50 percent of the time</Text>
+        <Text style={styles.baseText}>2 — Occasionally characteristic of me/true for me–about 25 percent of the time</Text>
+        <Text style={styles.baseText}>1 — Not at all characteristic of me/definitely untrue for me</Text>
+        <View
+        style={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 3,
+        }}/>
       <StatusBar style="auto" />
       </ScrollView>
     </View>
@@ -29,7 +57,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: 'Arial, Helvetica, Monaco, Times New Roman',
+    fontSize: 14,
+     // color: '#2058ff',
+     color: '#000000',
+     lineHeight: 40,
   },
   titleText: {
     fontFamily: 'Arial, Helvetica, Monaco, Times New Roman',
