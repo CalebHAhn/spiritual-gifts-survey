@@ -2,6 +2,14 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, ScrollView, FlatList } from 'react-native';
 
+
+/*
+
+Must run "nvm install node" first before running
+To start script right now use "npm start" not "expo start"
+
+*/
+
 export default function App() {
 const [number, onChangeNumber] = React.useState('');
   return (
