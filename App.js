@@ -12,6 +12,9 @@ To start script right now use "npm start" not "expo start"
 
 export default function App() {
 const [number, onChangeNumber] = React.useState('');
+const [number2, onChangeNumber2] = React.useState('');
+// adding '+' before the number vars to force var to be an int
+const a = +number + +number2;
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -62,7 +65,19 @@ const [number, onChangeNumber] = React.useState('');
         <Text style={styles.questionText}>Hello!</Text>
         </View>
 
-        <Text>{number}</Text>
+        <View style={styles.questionBox}>
+            <TextInput style = {styles.input}
+               placeholder = ''
+               autoCapitalize = "none"
+               value={number2}
+               onChangeText = {onChangeNumber2}
+               />
+        <Text style={styles.questionText}>Hello2!</Text>
+        </View>
+
+        <Text>
+          {a}
+        </Text>
 
       <StatusBar style="auto" />
       </ScrollView>
